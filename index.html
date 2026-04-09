@@ -23,7 +23,7 @@
         .card-title { color: #667eea; }
         .badge { margin: 2px; }
         .footer { background-color: #343a40; color: white; text-align: center; padding: 20px 0; }
-        .btn-toggle { background: none; border: none; color: #667eea; cursor: pointer; }
+        .card-clickable { cursor: pointer; }
         .collapse-content { display: none; }
         .collapse-content.show { display: block; }
     </style>
@@ -74,11 +74,10 @@
             <h2 class="text-center mb-4">Professional Experience</h2>
             <div class="row">
                 <div class="col-md-12">
-                    <div class="card">
+                    <div class="card card-clickable" onclick="toggleContent('exp1')">
                         <div class="card-body">
                             <h5 class="card-title">Cloud Engineer III AI/ML at Insight Direct India, Gurgaon, India (2023 – Present)</h5>
                             <h6 class="card-subtitle mb-2 text-muted">Client: Microsoft</h6>
-                            <button class="btn-toggle" onclick="toggleContent('exp1')">Toggle Details</button>
                             <div id="exp1" class="collapse-content">
                                 <ul>
                                     <li>Engineered and deployed an AI Code Detector in production to identify AI-generated code in repositories; collected & analyzed training data and built the model, enhancing code quality and security review processes.</li>
@@ -88,10 +87,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card">
+                    <div class="card card-clickable" onclick="toggleContent('exp2')">
                         <div class="card-body">
                             <h5 class="card-title">Machine Learning Engineer / Research Engineer at Havells Limited, Bengaluru, India (2021 – 2023)</h5>
-                            <button class="btn-toggle" onclick="toggleContent('exp2')">Toggle Details</button>
                             <div id="exp2" class="collapse-content">
                                 <ul>
                                     <li>Led energy disaggregation using NILM technology with BERT-based Deep Learning and KNN models to predict individual appliance consumption from aggregate measurements, achieving XX% improvement in prediction accuracy.</li>
@@ -103,10 +101,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card">
+                    <div class="card card-clickable" onclick="toggleContent('exp3')">
                         <div class="card-body">
                             <h5 class="card-title">Senior Systems Engineer at Infosys Limited, Bengaluru, India (2018 – 2021)</h5>
-                            <button class="btn-toggle" onclick="toggleContent('exp3')">Toggle Details</button>
                             <div id="exp3" class="collapse-content">
                                 <ul>
                                     <li>Designed and developed NLP systems to detect sanctioned entities (people & organizations) from transactional databases, improving detection accuracy by XX% through iterative model training and evaluation.</li>
@@ -158,10 +155,9 @@
             <h2 class="text-center mb-4">Selected Projects</h2>
             <div class="row">
                 <div class="col-md-6">
-                    <div class="card">
+                    <div class="card card-clickable" onclick="toggleContent('proj1')">
                         <div class="card-body">
                             <h5 class="card-title">Content Moderation</h5>
-                            <button class="btn-toggle" onclick="toggleContent('proj1')">Toggle Details</button>
                             <div id="proj1" class="collapse-content">
                                 <p class="card-text">Built real-time obscene scene detection in videos using OpenCV + YOLOv3 for automated content filtering.</p>
                             </div>
@@ -169,10 +165,9 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="card">
+                    <div class="card card-clickable" onclick="toggleContent('proj2')">
                         <div class="card-body">
                             <h5 class="card-title">Microsoft Malware Classification</h5>
-                            <button class="btn-toggle" onclick="toggleContent('proj2')">Toggle Details</button>
                             <div id="proj2" class="collapse-content">
                                 <p class="card-text">Achieved log loss of 0.018 classifying malware families with vectorizers, pixel features, and XGBoost.</p>
                             </div>
@@ -180,10 +175,9 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="card">
+                    <div class="card card-clickable" onclick="toggleContent('proj3')">
                         <div class="card-body">
                             <h5 class="card-title">Facial Expression Detection</h5>
-                            <button class="btn-toggle" onclick="toggleContent('proj3')">Toggle Details</button>
                             <div id="proj3" class="collapse-content">
                                 <p class="card-text">Developed real-time system with OpenCV Haar Cascades + VGG16.</p>
                             </div>
@@ -191,10 +185,9 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="card">
+                    <div class="card card-clickable" onclick="toggleContent('proj4')">
                         <div class="card-body">
                             <h5 class="card-title">Self-Driving Car Simulation</h5>
-                            <button class="btn-toggle" onclick="toggleContent('proj4')">Toggle Details</button>
                             <div id="proj4" class="collapse-content">
                                 <p class="card-text">Implemented NVIDIA CNN architecture with OpenCV for steering prediction in Udacity simulator.</p>
                             </div>
