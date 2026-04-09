@@ -14,7 +14,7 @@
         .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at 20% 80%, rgba(0, 212, 255, 0.3) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(255, 0, 150, 0.3) 0%, transparent 50%), radial-gradient(circle at 40% 40%, rgba(0, 255, 0, 0.2) 0%, transparent 50%); animation: float 20s ease-in-out infinite; }
         @keyframes float { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-20px) rotate(180deg); } }
         .hero h1 { font-family: 'Orbitron', monospace; font-size: 3rem; font-weight: 700; color: #00d4ff; text-shadow: 0 0 20px #00d4ff; }
-        .hero h2 { font-size: 1.5rem; margin-bottom: 20px; color: #fff; border-right: 2px solid #00d4ff; animation: blink 1s infinite; white-space: nowrap; overflow: hidden; }
+        .hero h2 { font-size: 1.5rem; margin-bottom: 20px; color: #fff; border-right: 2px solid #00d4ff; animation: blink 1s infinite; white-space: nowrap; overflow: hidden; display: inline-block; max-width: 400px; text-align: center; }
         @keyframes blink { 0%, 50% { border-color: #00d4ff; } 51%, 100% { border-color: transparent; } }
         .hero p { font-size: 1.1rem; color: #ccc; }
         .hero a { color: #00d4ff; text-decoration: none; margin: 0 10px; transition: all 0.3s; text-shadow: 0 0 10px #00d4ff; }
@@ -244,7 +244,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <h5><i class="fas fa-code"></i> Languages & Frameworks</h5>
-                    <p>Python <span class="badge bg-primary">C++</span> <span class="badge bg-primary">PyTorch</span> <span class="badge bg-primary">TensorFlow</span> <span class="badge bg-primary">Keras</span> <span class="badge bg-primary">Scikit-learn</span> <span class="badge bg-primary">XGBoost</span> <span class="badge bg-primary">OpenCV</span></p>
+                    <p><span class="badge bg-primary">Python</span> <span class="badge bg-primary">C++</span> <span class="badge bg-primary">PyTorch</span> <span class="badge bg-primary">TensorFlow</span> <span class="badge bg-primary">Keras</span> <span class="badge bg-primary">Scikit-learn</span> <span class="badge bg-primary">XGBoost</span> <span class="badge bg-primary">OpenCV</span></p>
                 </div>
                 <div class="col-md-6">
                     <h5><i class="fas fa-eye"></i> NLP & CV</h5>
