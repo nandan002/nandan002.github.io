@@ -14,7 +14,8 @@
         .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at 20% 80%, rgba(0, 212, 255, 0.3) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(255, 0, 150, 0.3) 0%, transparent 50%), radial-gradient(circle at 40% 40%, rgba(0, 255, 0, 0.2) 0%, transparent 50%); animation: float 20s ease-in-out infinite; }
         @keyframes float { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-20px) rotate(180deg); } }
         .hero h1 { font-family: 'Orbitron', monospace; font-size: 3rem; font-weight: 700; color: #00d4ff; text-shadow: 0 0 20px #00d4ff; }
-        .hero h2 { font-size: 1.5rem; margin-bottom: 20px; color: #fff; }
+        .hero h2 { font-size: 1.5rem; margin-bottom: 20px; color: #fff; border-right: 2px solid #00d4ff; animation: blink 1s infinite; white-space: nowrap; overflow: hidden; }
+        @keyframes blink { 0%, 50% { border-color: #00d4ff; } 51%, 100% { border-color: transparent; } }
         .hero p { font-size: 1.1rem; color: #ccc; }
         .hero a { color: #00d4ff; text-decoration: none; margin: 0 10px; transition: all 0.3s; text-shadow: 0 0 10px #00d4ff; }
         .hero a:hover { color: #fff; transform: scale(1.1); text-shadow: 0 0 20px #fff; }
@@ -46,7 +47,19 @@
         .particle:nth-child(3) { width: 3px; height: 3px; top: 70%; left: 30%; animation-delay: 4s; }
         .particle:nth-child(4) { width: 5px; height: 5px; top: 50%; left: 60%; animation-delay: 6s; }
         .particle:nth-child(5) { width: 4px; height: 4px; top: 90%; left: 20%; animation-delay: 8s; }
+        .particle:nth-child(6) { width: 8px; height: 8px; top: 30%; left: 40%; animation-delay: 1s; background: #ff0099; }
+        .particle:nth-child(7) { width: 5px; height: 5px; top: 60%; left: 90%; animation-delay: 3s; background: #00ff88; }
+        .particle:nth-child(8) { width: 3px; height: 3px; top: 80%; left: 50%; animation-delay: 5s; background: #ff6600; }
+        .particle:nth-child(9) { width: 6px; height: 6px; top: 15%; left: 70%; animation-delay: 7s; background: #6600ff; }
+        .particle:nth-child(10) { width: 4px; height: 4px; top: 85%; left: 15%; animation-delay: 9s; background: #ffcc00; }
         @keyframes particleMove { 0% { transform: translateY(0) rotate(0deg); opacity: 1; } 100% { transform: translateY(100vh) rotate(360deg); opacity: 0; } }
+        .floating-shapes { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: -1; }
+        .shape { position: absolute; opacity: 0.1; animation: floatShape 15s ease-in-out infinite; }
+        .shape:nth-child(1) { top: 20%; left: 20%; width: 50px; height: 50px; background: #00d4ff; clip-path: polygon(50% 0%, 0% 100%, 100% 100%); animation-delay: 0s; }
+        .shape:nth-child(2) { top: 60%; left: 80%; width: 30px; height: 30px; background: #ff0099; border-radius: 50%; animation-delay: 5s; }
+        .shape:nth-child(3) { top: 40%; left: 10%; width: 40px; height: 40px; background: #00ff88; clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%); animation-delay: 10s; }
+        .shape:nth-child(4) { top: 80%; left: 60%; width: 35px; height: 35px; background: #ff6600; transform: rotate(45deg); animation-delay: 7s; }
+        @keyframes floatShape { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-30px) rotate(180deg); } }
     </style>
 </head>
 <body data-bs-spy="scroll" data-bs-target="#navbarNav" data-bs-offset="70">
@@ -72,7 +85,7 @@
         <div class="container">
             <img src="profile.jpg" alt="Nandan Dubey" class="profile-img">
             <h1>Nandan Dubey</h1>
-            <h2>Machine Learning Engineer</h2>
+            <h2 id="typed-text"></h2>
             <p>Bengaluru, India</p>
             <p><i class="fas fa-envelope"></i> nandandubey002@gmail.com | <i class="fas fa-phone"></i> +91 9002823635</p>
             <p><a href="https://github.com/nandan002" target="_blank"><i class="fab fa-github"></i> GitHub</a> | <a href="https://www.linkedin.com/in/nandan-dubey-b61287141/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></p>
@@ -255,6 +268,18 @@
         <div class="particle"></div>
         <div class="particle"></div>
         <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <div class="floating-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -265,6 +290,23 @@
             const element = document.getElementById(id);
             element.classList.toggle('show');
         }
+
+        // Typing effect
+        const text = "Machine Learning Engineer";
+        let index = 0;
+        const typedText = document.getElementById('typed-text');
+
+        function typeWriter() {
+            if (index < text.length) {
+                typedText.innerHTML += text.charAt(index);
+                index++;
+                setTimeout(typeWriter, 100);
+            }
+        }
+
+        window.onload = function() {
+            typeWriter();
+        };
     </script>
 </body>
 </html>
