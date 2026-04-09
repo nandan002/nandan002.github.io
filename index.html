@@ -6,33 +6,59 @@
     <title>Nandan Dubey - Machine Learning Engineer</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8f9fa; }
-        .hero { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 100px 0; text-align: center; }
+        .hero { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 150px 0 100px; text-align: center; position: relative; overflow: hidden; }
+        .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat; opacity: 0.1; }
         .hero h1 { font-size: 3rem; font-weight: bold; }
         .hero h2 { font-size: 1.5rem; margin-bottom: 20px; }
         .hero p { font-size: 1.1rem; }
-        .hero a { color: white; text-decoration: none; margin: 0 10px; }
-        .hero a:hover { text-decoration: underline; }
-        .section { padding: 60px 0; }
-        .card { border: none; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin-bottom: 20px; }
+        .hero a { color: white; text-decoration: none; margin: 0 10px; transition: all 0.3s; }
+        .hero a:hover { transform: scale(1.1); }
+        .navbar { background-color: rgba(0,0,0,0.8); backdrop-filter: blur(10px); }
+        .section { padding: 80px 0; }
+        .card { border: none; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin-bottom: 20px; transition: transform 0.3s; }
+        .card:hover { transform: translateY(-5px); }
         .card-title { color: #667eea; }
         .badge { margin: 2px; }
         .footer { background-color: #343a40; color: white; text-align: center; padding: 20px 0; }
+        .btn-toggle { background: none; border: none; color: #667eea; cursor: pointer; }
+        .collapse-content { display: none; }
+        .collapse-content.show { display: block; }
     </style>
 </head>
-<body>
-    <header class="hero">
+<body data-bs-spy="scroll" data-bs-target="#navbarNav" data-bs-offset="70">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
+            <a class="navbar-brand" href="#hero">Nandan Dubey</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#certifications">Certifications</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header class="hero" id="hero">
+        <div class="container">
+            <i class="fas fa-user-circle fa-5x mb-3"></i>
             <h1>Nandan Dubey</h1>
             <h2>Machine Learning Engineer</h2>
             <p>Bengaluru, India</p>
             <p><i class="fas fa-envelope"></i> nandandubey002@gmail.com | <i class="fas fa-phone"></i> +91 9002823635</p>
-            <p><a href="https://github.com/nandan002"><i class="fab fa-github"></i> GitHub</a> | <a href="https://www.linkedin.com/in/nandan-dubey-b61287141/"><i class="fab fa-linkedin"></i> LinkedIn</a></p>
+            <p><a href="https://github.com/nandan002" target="_blank"><i class="fab fa-github"></i> GitHub</a> | <a href="https://www.linkedin.com/in/nandan-dubey-b61287141/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></p>
         </div>
     </header>
 
-    <section class="section" id="about">
+    <section class="section" id="about" data-aos="fade-up">
         <div class="container">
             <h2 class="text-center mb-4">About Me</h2>
             <div class="row justify-content-center">
@@ -43,7 +69,7 @@
         </div>
     </section>
 
-    <section class="section bg-light" id="experience">
+    <section class="section bg-light" id="experience" data-aos="fade-up">
         <div class="container">
             <h2 class="text-center mb-4">Professional Experience</h2>
             <div class="row">
@@ -52,33 +78,42 @@
                         <div class="card-body">
                             <h5 class="card-title">Cloud Engineer III AI/ML at Insight Direct India, Gurgaon, India (2023 – Present)</h5>
                             <h6 class="card-subtitle mb-2 text-muted">Client: Microsoft</h6>
-                            <ul>
-                                <li>Engineered and deployed an AI Code Detector in production to identify AI-generated code in repositories; collected & analyzed training data and built the model, enhancing code quality and security review processes.</li>
-                                <li>Optimized data quality in Fabric Lakehouse by implementing Data Augmentation using Data Agents to intelligently handle null values; integrated the solution with Microsoft Copilot, improving dataset completeness by XX% and accelerating downstream analytics.</li>
-                                <li>Designed and implemented Agentic AI multi-agent workflows by crafting optimized system prompts and instructions, enabling complex automated reasoning and task orchestration.</li>
-                            </ul>
+                            <button class="btn-toggle" onclick="toggleContent('exp1')">Toggle Details</button>
+                            <div id="exp1" class="collapse-content">
+                                <ul>
+                                    <li>Engineered and deployed an AI Code Detector in production to identify AI-generated code in repositories; collected & analyzed training data and built the model, enhancing code quality and security review processes.</li>
+                                    <li>Optimized data quality in Fabric Lakehouse by implementing Data Augmentation using Data Agents to intelligently handle null values; integrated the solution with Microsoft Copilot, improving dataset completeness by XX% and accelerating downstream analytics.</li>
+                                    <li>Designed and implemented Agentic AI multi-agent workflows by crafting optimized system prompts and instructions, enabling complex automated reasoning and task orchestration.</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Machine Learning Engineer / Research Engineer at Havells Limited, Bengaluru, India (2021 – 2023)</h5>
-                            <ul>
-                                <li>Led energy disaggregation using NILM technology with BERT-based Deep Learning and KNN models to predict individual appliance consumption from aggregate measurements, achieving XX% improvement in prediction accuracy.</li>
-                                <li>Developed real-time Person Detection, Zone Detection, and Face Recognition systems on embedded devices using C++ and OpenCV, delivering low-latency inference under XX ms.</li>
-                                <li>Built and deployed scalable REST APIs with Flask and FastAPI to productionize ML models, supporting high-throughput inference serving XX requests/second with low latency.</li>
-                                <li>Drove rigorous data preprocessing, feature engineering, hyperparameter tuning, and model optimization while maintaining code quality through Pytest and test-driven development.</li>
-                                <li>Collaborated with cross-functional teams to translate complex business problems into high-impact ML solutions.</li>
-                            </ul>
+                            <button class="btn-toggle" onclick="toggleContent('exp2')">Toggle Details</button>
+                            <div id="exp2" class="collapse-content">
+                                <ul>
+                                    <li>Led energy disaggregation using NILM technology with BERT-based Deep Learning and KNN models to predict individual appliance consumption from aggregate measurements, achieving XX% improvement in prediction accuracy.</li>
+                                    <li>Developed real-time Person Detection, Zone Detection, and Face Recognition systems on embedded devices using C++ and OpenCV, delivering low-latency inference under XX ms.</li>
+                                    <li>Built and deployed scalable REST APIs with Flask and FastAPI to productionize ML models, supporting high-throughput inference serving XX requests/second with low latency.</li>
+                                    <li>Drove rigorous data preprocessing, feature engineering, hyperparameter tuning, and model optimization while maintaining code quality through Pytest and test-driven development.</li>
+                                    <li>Collaborated with cross-functional teams to translate complex business problems into high-impact ML solutions.</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Senior Systems Engineer at Infosys Limited, Bengaluru, India (2018 – 2021)</h5>
-                            <ul>
-                                <li>Designed and developed NLP systems to detect sanctioned entities (people & organizations) from transactional databases, improving detection accuracy by XX% through iterative model training and evaluation.</li>
-                                <li>Automated NLP pipelines by selecting and implementing optimal algorithms, performing statistical analysis, and refining models to boost overall performance.</li>
-                                <li>Ensured high data quality through advanced cleaning, statistical validation, and preprocessing techniques for reliable model training and inference.</li>
-                            </ul>
+                            <button class="btn-toggle" onclick="toggleContent('exp3')">Toggle Details</button>
+                            <div id="exp3" class="collapse-content">
+                                <ul>
+                                    <li>Designed and developed NLP systems to detect sanctioned entities (people & organizations) from transactional databases, improving detection accuracy by XX% through iterative model training and evaluation.</li>
+                                    <li>Automated NLP pipelines by selecting and implementing optimal algorithms, performing statistical analysis, and refining models to boost overall performance.</li>
+                                    <li>Ensured high data quality through advanced cleaning, statistical validation, and preprocessing techniques for reliable model training and inference.</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -86,7 +121,7 @@
         </div>
     </section>
 
-    <section class="section" id="education">
+    <section class="section" id="education" data-aos="fade-up">
         <div class="container">
             <h2 class="text-center mb-4">Education</h2>
             <div class="row justify-content-center">
@@ -102,7 +137,7 @@
         </div>
     </section>
 
-    <section class="section bg-light" id="certifications">
+    <section class="section bg-light" id="certifications" data-aos="fade-up">
         <div class="container">
             <h2 class="text-center mb-4">Certifications</h2>
             <div class="row justify-content-center">
@@ -118,7 +153,7 @@
         </div>
     </section>
 
-    <section class="section" id="projects">
+    <section class="section" id="projects" data-aos="fade-up">
         <div class="container">
             <h2 class="text-center mb-4">Selected Projects</h2>
             <div class="row">
@@ -126,7 +161,10 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Content Moderation</h5>
-                            <p class="card-text">Built real-time obscene scene detection in videos using OpenCV + YOLOv3 for automated content filtering.</p>
+                            <button class="btn-toggle" onclick="toggleContent('proj1')">Toggle Details</button>
+                            <div id="proj1" class="collapse-content">
+                                <p class="card-text">Built real-time obscene scene detection in videos using OpenCV + YOLOv3 for automated content filtering.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -134,7 +172,10 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Microsoft Malware Classification</h5>
-                            <p class="card-text">Achieved log loss of 0.018 classifying malware families with vectorizers, pixel features, and XGBoost.</p>
+                            <button class="btn-toggle" onclick="toggleContent('proj2')">Toggle Details</button>
+                            <div id="proj2" class="collapse-content">
+                                <p class="card-text">Achieved log loss of 0.018 classifying malware families with vectorizers, pixel features, and XGBoost.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -142,7 +183,10 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Facial Expression Detection</h5>
-                            <p class="card-text">Developed real-time system with OpenCV Haar Cascades + VGG16.</p>
+                            <button class="btn-toggle" onclick="toggleContent('proj3')">Toggle Details</button>
+                            <div id="proj3" class="collapse-content">
+                                <p class="card-text">Developed real-time system with OpenCV Haar Cascades + VGG16.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -150,7 +194,10 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Self-Driving Car Simulation</h5>
-                            <p class="card-text">Implemented NVIDIA CNN architecture with OpenCV for steering prediction in Udacity simulator.</p>
+                            <button class="btn-toggle" onclick="toggleContent('proj4')">Toggle Details</button>
+                            <div id="proj4" class="collapse-content">
+                                <p class="card-text">Implemented NVIDIA CNN architecture with OpenCV for steering prediction in Udacity simulator.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -158,7 +205,7 @@
         </div>
     </section>
 
-    <section class="section bg-light" id="skills">
+    <section class="section bg-light" id="skills" data-aos="fade-up">
         <div class="container">
             <h2 class="text-center mb-4">Technical Skills</h2>
             <div class="row">
@@ -189,5 +236,13 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+        function toggleContent(id) {
+            const element = document.getElementById(id);
+            element.classList.toggle('show');
+        }
+    </script>
 </body>
 </html>
